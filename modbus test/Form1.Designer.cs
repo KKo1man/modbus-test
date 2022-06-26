@@ -86,7 +86,7 @@ namespace modbus_test
             this.textResult.Name = "textResult";
             this.textResult.Size = new System.Drawing.Size(353, 132);
             this.textResult.TabIndex = 1;
-            this.textResult.TextChanged += new System.EventHandler(this.textResult_TextChanged);
+        
             // 
             // btnRHR
             // 
@@ -110,7 +110,7 @@ namespace modbus_test
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ReadHoldingRegistr";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+         
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

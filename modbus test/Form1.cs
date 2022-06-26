@@ -29,23 +29,7 @@ namespace modbus_test
             InitializeComponent();
         }
        
-       
-
-     
-       
-        private void Form1_Load(object sender, EventArgs e)
-        {
-      
-           
-
-
-        }
-
-        private void textResult_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        
+ 
 
         private void btnRHR_Click(object sender, EventArgs e)
                
@@ -58,12 +42,12 @@ namespace modbus_test
                 serialPort = new SerialPort(portName, 9600, Parity.None, 8, StopBits.One);
                 serialPort.Open();
             }
-
+          
             catch (Exception ex)
             {
                 MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
+            //считываем данные с порта 
             try
             {
                 byte slaveAddress = 1;
@@ -72,7 +56,7 @@ namespace modbus_test
                 IModbusMaster masterRTU = ModbusSerialMaster.CreateRtu(serialPort);
                 ushort[] result = masterRTU.ReadHoldingRegisters(slaveAddress, startAddress, numberOfPoints);
 
-                //display result 
+                //Демонастрация результата
 
                 textResult.Text = string.Empty;
                 foreach (ushort item in result)
@@ -87,13 +71,14 @@ namespace modbus_test
             {
                 MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            //закрытие порта 
             finally 
             {
                 serialPort.Close();
             }
         }
 
-        //com0com
+        //вывод списка доступных портов
         private void comboBox1_DropDown(object sender, EventArgs e)
         {
             comboBox1.Items.Clear();
@@ -102,3 +87,5 @@ namespace modbus_test
         }
     }
 }
+
+
