@@ -35,7 +35,7 @@ namespace modbus_test
        
         private void Form1_Load(object sender, EventArgs e)
         {
-            //подлюкчает порт к устройству 
+      
            
 
 
@@ -52,6 +52,7 @@ namespace modbus_test
         {
             SerialPort serialPort = null;
             string portName = comboBox1.SelectedItem.ToString();
+            //подлкючение портов 
             try
             {
                 serialPort = new SerialPort(portName, 9600, Parity.None, 8, StopBits.One);
